@@ -1,0 +1,12 @@
+::selection {
+  background-color: #22c35e;
+  color: #fff
+}
+
+body {
+  overflow: hidden;
+}
+
+.background-image {
+  z-index: -2;
+}
