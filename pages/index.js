@@ -1,20 +1,21 @@
-import { useState, useEffect } from "react";
-import Head from "next/head";
-import Image from "next/image";
 import {
-	Input,
-	Stack,
+	Button,
 	Container,
 	Flex,
 	FormControl,
-	Button,
-	Text,
 	Heading,
-	Tooltip,
+	Image,
+	Input,
 	InputGroup,
-	Progress,
 	InputRightElement,
+	Progress,
+	Stack,
+	Text,
+	Tooltip,
 } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+
+import Head from "next/head";
 import zxcvbn from "zxcvbn";
 
 const Home = () => {
@@ -160,7 +161,7 @@ const Home = () => {
 				<Flex
 					className="blur-filter"
 					style={{ backdropFilter: `blur(${getBlurAmount()}px)` }}
-					position="absolute"
+					position="fixed"
 					top="50%"
 					left="50%"
 					height="105%"
@@ -172,10 +173,12 @@ const Home = () => {
 					className="background-image"
 					src={`/images/${photoId}.jpg`}
 					alt="background image"
-					layout="fill"
-					quality="80"
-					objectPosition="center"
-					priority
+					objectFit="cover"
+					position="fixed"
+					top="0"
+					left="0"
+					width="100vw"
+					height="100vh"
 				/>
 			</Flex>
 		</Flex>
