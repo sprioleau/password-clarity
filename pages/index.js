@@ -86,24 +86,14 @@ const Home = () => {
 			<Flex
 				direction="column"
 				justify="center"
+				align="center"
 				height="100vh"
 				width="100%"
 				position="relative"
 				overflow="hidden"
 				z-index="5"
 			>
-				<Container
-					as="section"
-					width="100%"
-					maxW={500}
-					px={8}
-					py={12}
-					my={12}
-					boxShadow="xl"
-					p="6"
-					rounded="lg"
-					backgroundColor="whiteAlpha.800"
-				>
+				<Container as="section" maxW={500} p={6} m={8} boxShadow="xl" rounded="lg" backgroundColor="whiteAlpha.800">
 					<Flex as="main" zIndex="1">
 						<form style={{ width: "100%" }}>
 							<Stack spacing={4}>
@@ -113,12 +103,12 @@ const Home = () => {
 								<Text as="p" textAlign="center" mb={2}>
 									Change the password to clarify the image.
 								</Text>
-
 								<FormControl id="password">
 									<InputGroup size="md">
 										<Input
 											autoFocus={true}
 											pr="4rem"
+											color="gray.700"
 											type={showPassword ? "text" : "password"}
 											placeholder="Enter password"
 											value={password}
@@ -164,8 +154,8 @@ const Home = () => {
 					position="fixed"
 					top="50%"
 					left="50%"
-					height="105%"
-					width="105%"
+					width="105vw"
+					height="105vh"
 					transform="translate(-50%, -50%)"
 					zIndex="-1"
 				/>
@@ -179,6 +169,7 @@ const Home = () => {
 					left="0"
 					width="100vw"
 					height="100vh"
+					zIndex="-2"
 				/>
 			</Flex>
 		</Flex>
