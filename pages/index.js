@@ -51,14 +51,14 @@ const Home = () => {
 	};
 
 	const getBlurAmount = () => {
-		const defaultBlur = "10";
+		const defaultBlur = 10;
 		if (!passwordScore || !password) return defaultBlur;
 
 		const blurMap = {
 			1: defaultBlur,
-			2: "6",
-			3: "2",
-			4: "0",
+			2: 6,
+			3: 2,
+			4: 0,
 		};
 
 		return blurMap[passwordScore];
@@ -70,7 +70,7 @@ const Home = () => {
 	}, [setPhotoId]);
 
 	return (
-		<Flex as="div" className="app">
+		<Flex as="div" className="app" background="blackAlpha.100">
 			<Head>
 				<title>Password Clarity</title>
 				<link rel="icon" href="/favicon.ico" />
@@ -92,8 +92,18 @@ const Home = () => {
 				position="relative"
 				overflow="hidden"
 				z-index="5"
+				p={6}
 			>
-				<Container as="section" maxW={500} p={6} m={8} boxShadow="xl" rounded="lg" backgroundColor="whiteAlpha.800">
+				<Container
+					as="section"
+					maxW={500}
+					p={6}
+					m={8}
+					mb="4rem"
+					boxShadow="xl"
+					rounded="lg"
+					backgroundColor="whiteAlpha.900"
+				>
 					<Flex as="main" zIndex="1">
 						<form style={{ width: "100%" }}>
 							<Stack spacing={4}>
@@ -108,7 +118,7 @@ const Home = () => {
 										<Input
 											autoFocus={true}
 											pr="4rem"
-											color="gray.700"
+											color="gray.800"
 											type={showPassword ? "text" : "password"}
 											placeholder="Enter password"
 											value={password}
@@ -149,28 +159,24 @@ const Home = () => {
 			</Flex>
 			<Flex zIndex="-1">
 				<Flex
-					className="blur-filter"
-					style={{ backdropFilter: `blur(${getBlurAmount()}px)` }}
 					position="fixed"
 					top="50%"
 					left="50%"
-					width="105vw"
-					height="105vh"
 					transform="translate(-50%, -50%)"
-					zIndex="-1"
-				/>
-				<Image
-					className="background-image"
-					src={`/images/${photoId}.jpg`}
-					alt="background image"
-					objectFit="cover"
-					position="fixed"
-					top="0"
-					left="0"
-					width="100vw"
-					height="100vh"
+					width="115%"
+					height="115%"
 					zIndex="-2"
-				/>
+					filter={`blur(${getBlurAmount()}px)`}
+				>
+					<Image
+						className="background-image"
+						src={`/images/${photoId}.jpg`}
+						alt="background image"
+						objectFit="cover"
+						width="100%"
+						height="100%"
+					/>
+				</Flex>
 			</Flex>
 		</Flex>
 	);
